@@ -1,0 +1,1 @@
+Glowny folder na pliki - takie jak zdj prof userow itd

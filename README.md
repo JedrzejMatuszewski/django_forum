@@ -1,1 +1,2 @@
-# django_forum
+# Forum Kluwa-Matuszewski
+## To zaczynamy :)
