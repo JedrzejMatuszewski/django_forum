@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Static Website</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="https://kit.fontawesome.com/4bf7ca5569.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="nav__top">
+        <p class="nav__top__brand-name">DESIGNDEV FORUM</p>
+        <input class="nav__top__search" type="search" placeholder="Search the forum">
+        <div class="nav__top__guest">
+            <p>Welcome, {{NAZWA KONTRA || Guest}}!</p>
+            <img src="" class="nav__top__guest__image" alt="{{ NAZWA_KONTA || Guest }}">
+        </div>
+    </nav>
+    <nav class="nav__left">
+        <a href="#" class="brand-logo__container"><img src="logo.png" class="brand-logo" alt="DESIGNDEV"></a>
+        <ul class="nav__left__buttons">
+            <li class="nav__left_button">
+                <a href="#" class="nav__left__link"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav__left_button">
+                <a href="#" class="nav__left__link"><i class="fas fa-users"></i></a>
+            </li>
+            <li class="nav__left_button">
+                <a href="#" class="nav__left__link"><i class="far fa-calendar-alt"></i></a>
+            </li>
+            <li class="nav__left_button">
+                <a href="#" class="nav__left__link"><i class="fab fa-behance-square"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="main-section">
+        {{INNE TEMPLATKI TUTAJ WCHODZA}}
+    </section>
+</body>
+</html>
