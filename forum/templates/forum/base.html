@@ -59,7 +59,9 @@
                             <a class="nav__top__guest__button" href="{% url 'logout' %}">Wyloguj się</a>
                         </div>
                     <p>Witaj, {{ user.username }}</p>
-                        <img src="{{ user.profile.image.url }}" alt="user-picture">
+                    <div class="nav__top__guest__image__container">
+                        <img src="{{ user.profile.image.url }}" class="nav__top__guest__image" alt="user-picture">
+                    </div>
                 </div>
                 {% else %}
                     <div class="nav__top__guest">
@@ -70,7 +72,9 @@
                             <a class="nav__top__guest__button" href="{% url 'register' %}">Zarejestruj się</a>
                         </div>
                         <p>Welcome, Guest!</p>
-                        <i class="fas fa-user-circle"></i>
+                        <div class="nav__top__guest__image__container">
+                            <img src="{% static 'forum/guestpic.png' %}" class="nav__top__guest__image" alt="user-picture">
+                        </div>
                     </div>
                 {% endif %}
             </nav>

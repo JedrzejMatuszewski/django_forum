@@ -49,6 +49,10 @@ table {
   border-spacing: 0;
 }
 
+body {
+  background-color: #FFF5FF;
+}
+
 p, input {
   font-family: "Kulim Park", sans-serif;
   color: #595959;
@@ -63,7 +67,6 @@ p, input {
 }
 
 .section__left {
-  background-color: white;
   flex: 2;
   max-width: 5.5rem;
 }
@@ -87,6 +90,7 @@ p, input {
 }
 
 .brand-logo__container {
+  max-height: 5.5rem;
   width: 100%;
   display: block;
   overflow: hidden;
@@ -128,6 +132,7 @@ p, input {
         </nav>
 */
 .nav__top {
+  max-height: 5.5rem;
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -135,8 +140,11 @@ p, input {
 }
 .nav__top .nav__top__brand-name {
   letter-spacing: 6px;
-  font-size: 0.9rem;
+  font-family: "Kulim Park", sans-serif;
+  font-size: 1rem;
   margin-left: 1.5rem;
+  color: #595959;
+  text-decoration: none;
 }
 .nav__top .nav__top__search__container {
   width: 55%;
@@ -153,6 +161,7 @@ p, input {
   font-size: 1.2rem;
 }
 .nav__top .nav__top__search {
+  background-color: #FFF5FF;
   height: 100%;
   width: 100%;
   border: none;
@@ -162,43 +171,61 @@ p, input {
   flex-direction: row;
   flex-wrap: nowrap;
   position: relative;
+  cursor: default;
+}
+.nav__top .nav__top__guest .nav__top__guest__image__container {
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 1rem 0 1rem;
+}
+.nav__top .nav__top__guest .nav__top__guest__image {
+  width: 100%;
+  height: 100%;
 }
 .nav__top .nav__top__guest:hover .nav__top__guest__buttons {
   display: block;
 }
 .nav__top .nav__top__guest .nav__top__guest__buttons {
   display: none;
-  box-shadow: 0px 1px 5px 0px rgba(30, 30, 30, 0.1);
+  box-shadow: 0px 0px 10px 0px rgba(30, 30, 30, 0.1);
   position: absolute;
   width: 80%;
   top: 100%;
   left: -1.8rem;
   background-color: #FCF8FF;
-  border-radius: 4% 1% 4% 4%;
-  padding: 0.8rem 0.7rem 1rem;
+  border-radius: 0.2rem;
+  padding: 1rem 0.6rem 1.5rem;
 }
 .nav__top .nav__top__guest .nav__top__guest__buttons:hover {
   display: block;
 }
 .nav__top .nav__top__guest .nav__top__guest__buttons .nav__top__guest__buttons__text {
   color: #4B4453;
+  text-align: center;
   margin: 0 0 1.5rem;
 }
 .nav__top .nav__top__guest .nav__top__guest__buttons .nav__top__guest__button {
   font-family: "Kulim Park", sans-serif;
   text-align: center;
-  margin: 0.3rem auto;
+  margin: 0.5rem auto;
   width: 95%;
   line-height: 180%;
   display: block;
-  background-color: rgba(81, 0, 202, 0.52);
+  background-color: #00BB64;
   color: white;
   text-decoration: none;
+  border-radius: 20px;
+}
+.nav__top .nav__top__guest .nav__top__guest__buttons .nav__top__guest__button:nth-of-type(2) {
+  background-color: #EFEEE4;
+  color: #A3AF9E;
 }
 .nav__top .nav__top__guest i {
-  margin: 0 0.5rem 0 1rem;
   font-size: 2.6rem;
   color: rgba(179, 179, 255, 0.7);
+  margin: 0 1rem 0 1rem;
 }
 .nav__top * {
   align-self: center;
@@ -261,10 +288,10 @@ section.section__main__content {
   background-color: white;
   border-radius: 8px;
   padding: 2rem 1.5rem;
-  color: white;
+  color: red;
 }
 .hot-topics .hot-topics__list p {
-  color: white;
+  color: red;
 }
 .section__main__content__right {
   margin: 2rem 3rem 0 0;
@@ -277,4 +304,3 @@ section.section__main__content {
 }
 
 /*# sourceMappingURL=index.css.map */
-/*comment*/
