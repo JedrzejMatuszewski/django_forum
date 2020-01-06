@@ -65,7 +65,7 @@ p, input {
 .section__left {
   background-color: white;
   flex: 2;
-  max-width: 4.5rem;
+  max-width: 5.5rem;
 }
 
 .section__main {
@@ -83,24 +83,34 @@ p, input {
 .brand-logo {
   width: 100%;
   height: auto;
+  flex: 1;
 }
 
 .brand-logo__container {
+  width: 100%;
   display: block;
   overflow: hidden;
   background: linear-gradient(335deg, rgba(111, 18, 255, 0.8197654062) 0%, rgba(100, 0, 255, 0.8) 100%);
   border-bottom-right-radius: 10px;
+  flex: 1;
+}
+
+.nav__left {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 .nav__left__buttons {
+  flex: 5.5;
   margin-top: 1.3rem;
   display: flex;
   flex-direction: column;
 }
 .nav__left__buttons .nav__left__button {
   align-self: center;
-  flex: 1;
-  margin: 1.3rem 0;
+  margin: 1.5rem 0;
 }
 .nav__left__buttons .nav__left__link i {
   font-size: 1.6rem;
@@ -120,8 +130,7 @@ p, input {
 .nav__top {
   display: flex;
   flex-direction: row;
-  flex: 2;
-  max-height: 5.5rem;
+  flex: 1;
   justify-content: space-between;
 }
 .nav__top .nav__top__brand-name {
@@ -152,6 +161,39 @@ p, input {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  position: relative;
+}
+.nav__top .nav__top__guest:hover .nav__top__guest__buttons {
+  display: block;
+}
+.nav__top .nav__top__guest .nav__top__guest__buttons {
+  display: none;
+  box-shadow: 0px 1px 5px 0px rgba(30, 30, 30, 0.1);
+  position: absolute;
+  width: 80%;
+  top: 100%;
+  left: -1.8rem;
+  background-color: #FCF8FF;
+  border-radius: 4% 1% 4% 4%;
+  padding: 0.8rem 0.7rem 1rem;
+}
+.nav__top .nav__top__guest .nav__top__guest__buttons:hover {
+  display: block;
+}
+.nav__top .nav__top__guest .nav__top__guest__buttons .nav__top__guest__buttons__text {
+  color: #4B4453;
+  margin: 0 0 1.5rem;
+}
+.nav__top .nav__top__guest .nav__top__guest__buttons .nav__top__guest__button {
+  font-family: "Kulim Park", sans-serif;
+  text-align: center;
+  margin: 0.3rem auto;
+  width: 95%;
+  line-height: 180%;
+  display: block;
+  background-color: rgba(81, 0, 202, 0.52);
+  color: white;
+  text-decoration: none;
 }
 .nav__top .nav__top__guest i {
   margin: 0 0.5rem 0 1rem;
@@ -163,11 +205,10 @@ p, input {
 }
 
 section.section__main__content {
-  flex: 10;
+  margin-top: 0.2rem;
+  flex: 5.3;
   background: linear-gradient(335deg, rgba(111, 18, 255, 0.8197654062) 0%, rgba(100, 0, 255, 0.8) 100%);
-  height: 100%;
   border-radius: 8px;
-  padding: 3rem 5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -176,13 +217,13 @@ section.section__main__content {
 }
 
 .section__main__separator {
-  flex: 1;
-  max-height: 1.5rem;
+  flex: 0.2;
 }
 
 .hot-topics {
+  margin: 2rem 0 0 3rem;
   flex: 2;
-  max-width: 50%;
+  max-width: 45%;
 }
 .hot-topics .hot-topics__header {
   display: flex;
@@ -197,6 +238,25 @@ section.section__main__content {
   margin: 0 auto 0 0.7rem;
   font-size: 1.2rem;
 }
+.hot-topics .hot-topics__header .hot-topics__header__button {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+.hot-topics .hot-topics__header .hot-topics__header__button:before {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 160%;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  border-radius: 50px;
+  border-left: none;
+  top: -40%;
+  right: -20%;
+  box-shadow: 0px 0px 8px 0px white;
+  box-shadow: inset 0px 0px 8px 0px white;
+}
 .hot-topics .hot-topics__list {
   background-color: white;
   border-radius: 8px;
@@ -207,6 +267,7 @@ section.section__main__content {
   color: white;
 }
 .section__main__content__right {
+  margin: 2rem 3rem 0 0;
   flex: 1;
 }
 

@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,132 +9,143 @@
     <title>Static Website</title>
     <link rel="stylesheet" href="{% static 'forum/index.css' %}">
     <script src="https://kit.fontawesome.com/4bf7ca5569.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
 
 </head>
+
 <body>
 
-<div class="section__container">
-    <div class="section__left">
-        <nav class="nav__left">
-            <a href="#" class="brand-logo__container"><img src="{% static 'forum/logo.png' %}" class="brand-logo" alt="DESIGNDEV"></a>
-            <ul class="nav__left__buttons">
-                <li class="nav__left__button">
-                    <a href="#" class="nav__left__link"><i class="fas fa-signal"></i></a>
-                </li>
-                <li class="nav__left__button">
-                    <a href="#" class="nav__left__link"><i class="fas fa-users"></i></a>
-                </li>
-                <li class="nav__left__button">
-                    <a href="#" class="nav__left__link"><i class="far fa-calendar-alt"></i></a>
-                </li>
-                <li class="nav__left__button">
-                    <a href="#" class="nav__left__link"><i class="fab fa-behance-square"></i></a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    
-    
-    <div class="section__main">
-        <nav class="nav__top">
-            <p class="nav__top__brand-name">DESIGNDEV FORUM</p>
-            <div class="nav__top__search__container">
-                <i class="fas fa-search"></i>
-                <input class="nav__top__search" type="search" placeholder="Search the forum">
-            </div>
-            <div class="nav__top__guest">
-                <p>Welcome, Guest!</p>
-                <i class="fas fa-user-circle"></i>
-            </div>
-        </nav>
-    
-        <section class="section__main__content">
-            
-
-
-
-
-
-
-
-            
-            
-            <div class="hot-topics">
-                <header class="hot-topics__header">
-                    <i class="fas fa-burn"></i>
-                    <h1>HOT TOPICS</h1>
-                    <a href="#" class="hot-topics__header__button">View All</a>
-                </header>
-                <ul class="hot-topics__list">
-                    <li class="hot-topics__topic">
-                        <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-                        <p class="hot-topics__topic__desc">ale beka</p>
-                        <ul class="hot-topics__topic__statistics">
-                            <li>300 replies</li>
-                            <li>300 likes</li>
-                            <li>300 views</li>
-                            <li>Dział design</li>
-                        </ul>
+    <div class="section__container">
+        <div class="section__left">
+            <nav class="nav__left">
+                <div class="brand-logo__container"><img src="{% static 'forum/logo.png' %}" class="brand-logo" alt=""></div>
+                <ul class="nav__left__buttons">
+                    <li class="nav__left__button">
+                        <a href="#" class="nav__left__link"><i class="fas fa-signal"></i></a>
                     </li>
-                    <li class="hot-topics__topic">
-                        <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-                        <p class="hot-topics__topic__desc">ale beka</p>
-                        <ul class="hot-topics__topic__statistics">
-                            <li>300 replies</li>
-                            <li>300 likes</li>
-                            <li>300 views</li>
-                            <li>Dział design</li>
-                        </ul>
+                    <li class="nav__left__button">
+                        <a href="#" class="nav__left__link"><i class="fas fa-users"></i></a>
                     </li>
-                    <li class="hot-topics__topic">
-                        <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-                        <p class="hot-topics__topic__desc">ale beka</p>
-                        <ul class="hot-topics__topic__statistics">
-                            <li>300 replies</li>
-                            <li>300 likes</li>
-                            <li>300 views</li>
-                            <li>Dział design</li>
-                        </ul>
+                    <li class="nav__left__button">
+                        <a href="#" class="nav__left__link"><i class="far fa-calendar-alt"></i></a>
+                    </li>
+                    <li class="nav__left__button">
+                        <a href="#" class="nav__left__link"><i class="fab fa-behance-square"></i></a>
                     </li>
                 </ul>
-            </div>
+            </nav>
+        </div>
 
-            <div class="section__main__content__separator"></div>
-            
 
-            <div class="section__main__content__right">
+        <div class="section__main">
+            <nav class="nav__top">
+                <p class="nav__top__brand-name">DESIGNDEV FORUM</p>
+                <div class="nav__top__search__container">
+                    <i class="fas fa-search"></i>
+                    <input class="nav__top__search" type="search" placeholder="Search the forum">
+                </div>
+                <div class="nav__top__guest">
+                    <div class="nav__top__guest__buttons">
+                        <p class="nav__top__guest__buttons__text">Sir, please log in!</p>
 
-                <div class="categories">
-                    <header class="categories__header">
-                        <h1>All of Categories:</h1>
-                        <a href="#" class="categories__header__button">View All</a>
+                        <a href="#" class="nav__top__guest__button">Sign in</a>
+                        <a href="#" class="nav__top__guest__button">Sign up</a>
+                    </div>
+                    <p>Welcome, Guest!</p>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </nav>
+
+            <section class="section__main__content">
+
+
+
+
+
+
+
+
+
+
+                <div class="hot-topics">
+                    <header class="hot-topics__header">
+                        <i class="fas fa-burn"></i>
+                        <h1>HOT TOPICS</h1>
+                        <a href="#" class="hot-topics__header__button">View All</a>
                     </header>
-                    <ul class="categories__list">
-                        <li class="categories__category">jakas tam kategoria</li>
-                        <li class="categories__category">jakas tam kategoria</li>
-                        <li class="categories__category">jakas tam kategoria</li>
-                        <li class="categories__category">jakas tam kategoria</li>
-                        <li class="categories__category">jakas tam kategoria</li>
+                    <ul class="hot-topics__list">
+                        <li class="hot-topics__topic">
+                            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
+                            <p class="hot-topics__topic__desc">ale beka</p>
+                            <ul class="hot-topics__topic__statistics">
+                                <li>300 replies</li>
+                                <li>300 likes</li>
+                                <li>300 views</li>
+                                <li>Dział design</li>
+                            </ul>
+                        </li>
+                        <li class="hot-topics__topic">
+                            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
+                            <p class="hot-topics__topic__desc">ale beka</p>
+                            <ul class="hot-topics__topic__statistics">
+                                <li>300 replies</li>
+                                <li>300 likes</li>
+                                <li>300 views</li>
+                                <li>Dział design</li>
+                            </ul>
+                        </li>
+                        <li class="hot-topics__topic">
+                            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
+                            <p class="hot-topics__topic__desc">ale beka</p>
+                            <ul class="hot-topics__topic__statistics">
+                                <li>300 replies</li>
+                                <li>300 likes</li>
+                                <li>300 views</li>
+                                <li>Dział design</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                
-                <div class="stats">
-                    <header class="stats__header">
-                        <h1>Forum statistics</h1>
-                    </header>
-                    <ul class="stats__list">
-                        <li class="stats__statistic">200 users online from 16 countries</li>
-                        <li class="stats__statistic">600 Active members</li>
-                        <li class="stats__statistic">400 topics</li>
-                        <li class="stats__statistic">9999999999 posts</li>
-                        <li class="stats__statistic">9999 categories</li>
-                    </ul>
+
+                <div class="section__main__content__separator"></div>
+
+
+                <div class="section__main__content__right">
+
+                    <div class="categories">
+                        <header class="categories__header">
+                            <h1>All of Categories:</h1>
+                            <a href="#" class="categories__header__button">View All</a>
+                        </header>
+                        <ul class="categories__list">
+                            <li class="categories__category">jakas tam kategoria</li>
+                            <li class="categories__category">jakas tam kategoria</li>
+                            <li class="categories__category">jakas tam kategoria</li>
+                            <li class="categories__category">jakas tam kategoria</li>
+                            <li class="categories__category">jakas tam kategoria</li>
+                        </ul>
+                    </div>
+
+                    <div class="stats">
+                        <header class="stats__header">
+                            <h1>Forum statistics</h1>
+                        </header>
+                        <ul class="stats__list">
+                            <li class="stats__statistic">200 users online from 16 countries</li>
+                            <li class="stats__statistic">600 Active members</li>
+                            <li class="stats__statistic">400 topics</li>
+                            <li class="stats__statistic">9999999999 posts</li>
+                            <li class="stats__statistic">9999 categories</li>
+                        </ul>
+                    </div>
+
                 </div>
 
-            </div>
-            
 
 
 
@@ -145,19 +157,20 @@
 
 
 
-        </section>
+            </section>
 
-        <div class="section__main__separator"></div>
-    
+            <div class="section__main__separator"></div>
+
+        </div>
+
+        <div class="section__right">
+
+        </div>
     </div>
 
-    <div class="section__right">
-        
-    </div>
-</div>
 
-    
 
-    
+
 </body>
+
 </html>
