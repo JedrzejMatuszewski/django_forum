@@ -44,119 +44,40 @@
 
         <div class="section__main">
             <nav class="nav__top">
-                <p class="nav__top__brand-name">DESIGNDEV FORUM</p>
+                <a href="{% url 'forum-home' %}" class="nav__top__brand-name">DESIGNDEV FORUM</a>
                 <div class="nav__top__search__container">
                     <i class="fas fa-search"></i>
                     <input class="nav__top__search" type="search" placeholder="Search the forum">
                 </div>
-                <div class="nav__top__guest">
-                    <div class="nav__top__guest__buttons">
-                        <p class="nav__top__guest__buttons__text">Sir, please log in!</p>
 
-                        <a href="#" class="nav__top__guest__button">Sign in</a>
-                        <a href="#" class="nav__top__guest__button">Sign up</a>
-                    </div>
-                    <p>Welcome, Guest!</p>
-                    <i class="fas fa-user-circle"></i>
+
+                {% if user.is_authenticated %}
+                    <div class="nav__top__guest">
+                        <div class="nav__top__guest__buttons">
+
+                            <a class="nav__top__guest__button" href="{% url 'profile' %}">Profil</a>
+                            <a class="nav__top__guest__button" href="{% url 'logout' %}">Wyloguj się</a>
+                        </div>
+                    <p>Witaj, {{ user.username }}</p>
+                        <img src="{{ user.profile.image.url }}" alt="user-picture">
                 </div>
+                {% else %}
+                    <div class="nav__top__guest">
+                        <div class="nav__top__guest__buttons">
+                            <p class="nav__top__guest__buttons__text">Proszę się zalogować</p>
+
+                            <a class="nav__top__guest__button" href="{% url 'login' %}">Zaloguj się</a>
+                            <a class="nav__top__guest__button" href="{% url 'register' %}">Zarejestruj się</a>
+                        </div>
+                        <p>Welcome, Guest!</p>
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                {% endif %}
             </nav>
 
+
             <section class="section__main__content">
-
-
-
-
-
-
-
-
-
-
-                <div class="hot-topics">
-                    <header class="hot-topics__header">
-                        <i class="fas fa-burn"></i>
-                        <h1>HOT TOPICS</h1>
-                        <a href="#" class="hot-topics__header__button">View All</a>
-                    </header>
-                    <ul class="hot-topics__list">
-                        <li class="hot-topics__topic">
-                            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-                            <p class="hot-topics__topic__desc">ale beka</p>
-                            <ul class="hot-topics__topic__statistics">
-                                <li>300 replies</li>
-                                <li>300 likes</li>
-                                <li>300 views</li>
-                                <li>Dział design</li>
-                            </ul>
-                        </li>
-                        <li class="hot-topics__topic">
-                            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-                            <p class="hot-topics__topic__desc">ale beka</p>
-                            <ul class="hot-topics__topic__statistics">
-                                <li>300 replies</li>
-                                <li>300 likes</li>
-                                <li>300 views</li>
-                                <li>Dział design</li>
-                            </ul>
-                        </li>
-                        <li class="hot-topics__topic">
-                            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-                            <p class="hot-topics__topic__desc">ale beka</p>
-                            <ul class="hot-topics__topic__statistics">
-                                <li>300 replies</li>
-                                <li>300 likes</li>
-                                <li>300 views</li>
-                                <li>Dział design</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="section__main__content__separator"></div>
-
-
-                <div class="section__main__content__right">
-
-                    <div class="categories">
-                        <header class="categories__header">
-                            <h1>All of Categories:</h1>
-                            <a href="#" class="categories__header__button">View All</a>
-                        </header>
-                        <ul class="categories__list">
-                            <li class="categories__category">jakas tam kategoria</li>
-                            <li class="categories__category">jakas tam kategoria</li>
-                            <li class="categories__category">jakas tam kategoria</li>
-                            <li class="categories__category">jakas tam kategoria</li>
-                            <li class="categories__category">jakas tam kategoria</li>
-                        </ul>
-                    </div>
-
-                    <div class="stats">
-                        <header class="stats__header">
-                            <h1>Forum statistics</h1>
-                        </header>
-                        <ul class="stats__list">
-                            <li class="stats__statistic">200 users online from 16 countries</li>
-                            <li class="stats__statistic">600 Active members</li>
-                            <li class="stats__statistic">400 topics</li>
-                            <li class="stats__statistic">9999999999 posts</li>
-                            <li class="stats__statistic">9999 categories</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
+                {% block content %}{% endblock content %}
             </section>
 
             <div class="section__main__separator"></div>
