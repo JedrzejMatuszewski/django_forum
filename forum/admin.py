@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Categories, Topic, Post
 
-# Register your models here.
+admin.site.register(Categories)
+admin.site.register(Topic)
+admin.site.register(Post)

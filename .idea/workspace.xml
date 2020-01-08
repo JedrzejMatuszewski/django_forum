@@ -4,15 +4,52 @@
     <list default="true" id="949a358b-1596-4bf8-89a6-fc2c8a523075" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forum/templates/forum/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/templates/forum/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/templates/forum/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/templates/forum/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/0001_initial.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -107,7 +144,8 @@
       <workItem from="1577738785884" duration="3000" />
       <workItem from="1577750506068" duration="14000" />
       <workItem from="1578507505401" duration="2778000" />
-      <workItem from="1578510493997" duration="14000" />
+      <workItem from="1578510493997" duration="1225000" />
+      <workItem from="1578515225441" duration="4116000" />
     </task>
     <servers />
   </component>
@@ -127,6 +165,14 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="883" y="187" key="SettingsEditor/0.25.1920.1055@0.25.1920.1055" timestamp="1577397398991" />
+    <state x="767" y="395" width="386" height="313" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1578518751442">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="767" y="395" width="386" height="313" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.25.1920.1055@0.25.1920.1055" timestamp="1578518751442" />
+    <state x="711" y="370" width="488" height="359" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1578518669150">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="711" y="370" width="488" height="359" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1578518669150" />
     <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1578510251947">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
