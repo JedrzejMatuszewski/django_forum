@@ -47,21 +47,20 @@
 
     <div class="categories">
         <header class="categories__header">
-            <h1>All of Categories:</h1>
-            <a href="#" class="categories__header__button">View All</a>
+            <i class="fas fa-align-right"></i>
+            <h1>CATEGORIES</h1>
         </header>
         <ul class="categories__list">
-            <li class="categories__category">jakas tam kategoria</li>
-            <li class="categories__category">jakas tam kategoria</li>
-            <li class="categories__category">jakas tam kategoria</li>
-            <li class="categories__category">jakas tam kategoria</li>
-            <li class="categories__category">jakas tam kategoria</li>
+            {% for category in categories_obj %}
+                <li class="categories__category">{{ category.title}}</li>
+            {% endfor %}
         </ul>
     </div>
 
     <div class="stats">
         <header class="stats__header">
-            <h1>Forum statistics</h1>
+            <i class="fas fa-chart-bar"></i>
+            <h1>Forum stats</h1>
         </header>
         <ul class="stats__list">
             <li class="stats__statistic">200 users online from 16 countries</li>
