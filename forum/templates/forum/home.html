@@ -51,15 +51,9 @@
             <h1>CATEGORIES</h1>
         </header>
         <ul class="categories__list">
-            <li class="categories__category">DESIGN</li>
-            <li class="categories__category">GAMING</li>
-            <li class="categories__category">OTHERS</li>
-            <li class="categories__category">STYLING</li>
-            <li class="categories__category">WEB DEVELOPMENT</li>
-            <li class="categories__category">HELP</li>
-            <li class="categories__category">HELP</li>
-            <li class="categories__category">HELP</li>
-            <li class="categories__category">HELP</li>
+            {% for category in categories_obj %}
+                <li class="categories__category">{{ category.title }}</li>
+            {% endfor %}
         </ul>
     </div>
 
@@ -79,3 +73,4 @@
 
 </div>
 {% endblock content %}
+
