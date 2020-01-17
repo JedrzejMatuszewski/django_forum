@@ -1,4 +1,6 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Kulim+Park&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -242,15 +244,37 @@ p, input {
 }
 
 section.section__main__content {
+  z-index: 0;
+  position: relative;
   margin-top: 0.2rem;
   flex: 5.3;
   background: linear-gradient(335deg, rgba(111, 18, 255, 0.8197654062) 0%, rgba(100, 0, 255, 0.8) 100%);
   border-radius: 8px;
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   color: white;
   font-family: "Kulim Park", sans-serif;
+}
+section.section__main__content * {
+  z-index: 1;
+}
+section.section__main__content .section__main__background {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  position: absolute;
+}
+section.section__main__content .bg-group__primary {
+  right: 0;
+  background: linear-gradient(49deg, rgba(52, 73, 254, 0.424116888) 0%, rgba(47, 57, 255, 0.4353213698) 53%, rgba(0, 10, 254, 0.4073101653) 53%, rgba(255, 123, 0, 0.3736967199) 100%);
+}
+section.section__main__content .bg-group__second {
+  right: -10%;
+  clip-path: ellipse(29% 63% at 92% 77%);
+  background: linear-gradient(350deg, rgba(255, 255, 255, 0) 0%, rgba(255, 127, 214, 0.0739768319) 20%, rgba(223, 159, 183, 0.2532485406) 40%, rgba(255, 88, 244, 0.8081505014) 100%);
 }
 
 .section__main__separator {
@@ -258,6 +282,7 @@ section.section__main__content {
 }
 
 .hot-topics {
+  z-index: 1;
   margin: 2rem 0 0 3rem;
   flex: 2;
   max-width: 45%;
@@ -266,6 +291,23 @@ section.section__main__content {
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
+  /*.hot-topics__header__button:before{
+      content: '';
+      //z-index: -1;
+      position: absolute;
+      //background-color: white;
+      //border: 1px solid black;
+      width: 140%;
+      height: 160%;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+      border-radius: 50px;
+      border-left: none;
+      top: -40%;
+      right: -20%;
+      box-shadow: 0px 0px 8px 0px rgba(255,255,255,1);
+      box-shadow: inset 0px 0px 8px 0px rgba(255,255,255,1);
+  }*/
 }
 .hot-topics .hot-topics__header i {
   color: rgba(255, 255, 255, 0.6);
@@ -280,30 +322,78 @@ section.section__main__content {
   color: white;
   position: relative;
 }
-.hot-topics .hot-topics__header .hot-topics__header__button:before {
-  content: "";
-  position: absolute;
-  width: 140%;
-  height: 160%;
-  border-top: 1px solid white;
-  border-right: 1px solid white;
-  border-radius: 50px;
-  border-left: none;
-  top: -40%;
-  right: -20%;
-  box-shadow: 0px 0px 8px 0px white;
-  box-shadow: inset 0px 0px 8px 0px white;
-}
 .hot-topics .hot-topics__list {
   background-color: white;
   border-radius: 8px;
   padding: 2rem 1.5rem;
-  color: red;
 }
-.hot-topics .hot-topics__list p {
-  color: red;
+.hot-topics .hot-topics__topic {
+  display: flex;
+  flex-direction: column;
 }
+.hot-topics .hot-topics__topic:nth-of-type(n+2) {
+  margin-top: 2rem;
+}
+.hot-topics .hot-topics__topic__header {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+  font-size: 17px;
+  font-family: "Lato", sans-serif;
+}
+.hot-topics .hot-topics__topic__desc {
+  margin-top: 0.4rem;
+}
+.hot-topics .hot-topics__topic__statistics {
+  margin-top: 1rem;
+}
+.hot-topics .hot-topics__topic__statistics__container {
+  background-color: rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  padding: 0.2rem 2rem 0.4rem 1rem;
+  border-radius: 20px;
+}
+.hot-topics .hot-topics__topic__statistics li {
+  display: inline-block;
+  font-family: "Lato", sans-serif;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.75);
+}
+.hot-topics .hot-topics__topic__statistics li:nth-of-type(n+2) {
+  margin-left: 1rem;
+}
+
+.section-mark {
+  padding-left: 0.6rem;
+  position: relative;
+  font-weight: 700;
+  color: orange !important;
+}
+.section-mark:before {
+  background-color: orange;
+  content: "";
+  position: absolute;
+  height: 0.6rem;
+  width: 0.6rem;
+  border-radius: 50%;
+  left: -0.2rem;
+  transform: translateY(0.1rem);
+}
+
+/*
+    <ul class="hot-topics__list">
+        <li class="hot-topics__topic">
+            <h2 class="hot-topics__topic__header">What skill do u need to be a developer</h2>
+            <p class="hot-topics__topic__desc">i want to ...</p>
+            <ul class="hot-topics__topic__statistics">
+                <li>300 replies</li>
+                <li>300 likes</li>
+                <li>300 views</li>
+                <li>Dział design</li>
+            </ul>
+        </li>
+*/
 .section__main__content__right {
+  z-index: 1;
   margin: 2rem 3rem 0 0;
   flex: 1;
 }
@@ -313,6 +403,9 @@ section.section__main__content {
   max-width: 8%;
 }
 
+.categories {
+  z-index: 2;
+}
 .categories__header {
   display: flex;
   flex-direction: row;
