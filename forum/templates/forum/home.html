@@ -7,7 +7,9 @@
         <a href="#" class="hot-topics__header__button">View All</a>
     </header>
     <ul class="hot-topics__list">
+        {% for post in topic_obj %}
         <li class="hot-topics__topic">
+<<<<<<< HEAD
             <h2 class="hot-topics__topic__header">What skill do u need to be a developer</h2>
             <p class="hot-topics__topic__desc">i want to ...</p>
             <ul class="hot-topics__topic__statistics">
@@ -44,7 +46,15 @@
                     <li class="section-mark">Gaming</li>
                 </div>
             </ul>
+=======
+            <h2 class="hot-topics__topic__header">Nazwa posta: {{ post.title }}</h2>
+            <div>Autor: {{ post.author }}</div>
+            <div>Data: {{ post.date_posted|date:'d F Y'}}</div>
+            <div>Kategoria: {{ post.category }}</div>
+            <div>Tresc: {{ post.content }}</div>
+>>>>>>> de412e5698a64ed79a1f0c3ebec90bb0cc2565a6
         </li>
+        {% endfor %}
     </ul>
 </div>
 
