@@ -7,36 +7,15 @@
         <a href="#" class="hot-topics__header__button">View All</a>
     </header>
     <ul class="hot-topics__list">
+        {% for post in topic_obj %}
         <li class="hot-topics__topic">
-            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-            <p class="hot-topics__topic__desc">ale beka</p>
-            <ul class="hot-topics__topic__statistics">
-                <li>300 replies</li>
-                <li>300 likes</li>
-                <li>300 views</li>
-                <li>Dział design</li>
-            </ul>
+            <h2 class="hot-topics__topic__header">Nazwa posta: {{ post.title }}</h2>
+            <div>Autor: {{ post.author }}</div>
+            <div>Data: {{ post.date_posted|date:'d F Y'}}</div>
+            <div>Kategoria: {{ post.category }}</div>
+            <div>Tresc: {{ post.content }}</div>
         </li>
-        <li class="hot-topics__topic">
-            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-            <p class="hot-topics__topic__desc">ale beka</p>
-            <ul class="hot-topics__topic__statistics">
-                <li>300 replies</li>
-                <li>300 likes</li>
-                <li>300 views</li>
-                <li>Dział design</li>
-            </ul>
-        </li>
-        <li class="hot-topics__topic">
-            <h2 class="hot-topics__topic__header">nasrala mu w gacie</h2>
-            <p class="hot-topics__topic__desc">ale beka</p>
-            <ul class="hot-topics__topic__statistics">
-                <li>300 replies</li>
-                <li>300 likes</li>
-                <li>300 views</li>
-                <li>Dział design</li>
-            </ul>
-        </li>
+        {% endfor %}
     </ul>
 </div>
 
