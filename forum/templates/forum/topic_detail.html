@@ -1,0 +1,24 @@
+{% extends 'forum/base.html' %}
+{% block content %}
+<div class="hot-topics">
+    <header class="hot-topics__header">
+        <i class="fas fa-burn"></i>
+        <h1>HOT TOPICS</h1>
+        <a href="#" class="hot-topics__header__button">View All</a>
+    </header>
+    <ul class="hot-topics__list">
+        <li class="hot-topics__topic">
+            <h2 class="hot-topics__topic__header">{{ topic_obj.title }}</h2>
+            <p class="hot-topics__topic__desc">{{ topic_obj.content }}</p>
+            <ul class="hot-topics__topic__statistics">
+                <div class="hot-topics__topic__statistics__container">
+                    <li>Autor: {{ topic_obj.author }}</li>
+                    <li>Data: {{ topic_obj.date_posted|date:'d F Y'}}</li>
+                    <li class="section-mark">{{ topic_obj.category }}</li>
+                </div>
+
+            </ul>
+        </li>
+    </ul>
+</div>
+{% endblock content %}

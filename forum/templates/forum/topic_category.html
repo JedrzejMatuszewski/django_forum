@@ -10,12 +10,12 @@
         {% for post in topic_obj %}
         <li class="hot-topics__topic">
             <h2 class="hot-topics__topic__header"><a href="{% url 'topic-detail' post.id %}">{{ post.title }}</a></h2>
-            <p class="hot-topics__topic__desc">{{ post.content|truncatewords:20 }}</p>
+            <p class="hot-topics__topic__desc">{{ post.content|truncatechars:200 }}</p>
             <ul class="hot-topics__topic__statistics">
                 <div class="hot-topics__topic__statistics__container">
                     <li>Autor: {{ post.author }}</li>
                     <li>Data: {{ post.date_posted|date:'d F Y'}}</li>
-                    <li class="section-mark {{ post.category }}">{{ post.category }}</li>
+                    <li class="section-mark">{{ post.category }}</li>
                 </div>
 
             </ul>
@@ -36,8 +36,7 @@
         </header>
         <ul class="categories__list">
             {% for category in categories_obj %}
-            <li class="categories__category"><a href="{% url 'topic-category' category.id %}">{{ category.title }}</a>
-            </li>
+            <li class="categories__category"><a href="{% url 'topic-category' category.id %}">{{ category.title }}</a></li>
             {% endfor %}
         </ul>
     </div>

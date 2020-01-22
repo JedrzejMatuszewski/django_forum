@@ -1,7 +1,13 @@
 from django.urls import path
-from . import views
+from .views import (
+    CatAndTopicListView,
+    TopicDetailView,
+    CategoryTopicListView,
+)
 
 urlpatterns = [
-    path('', views.CategoriesListView.as_view(), name='forum-home'),
+    path('', CatAndTopicListView.as_view(), name='forum-home'),
+    path('topics/<int:pk>/', TopicDetailView.as_view(), name='topic-detail'),
+    path('topics/category/<int:pk>/', CategoryTopicListView.as_view(), name='topic-category'),
 ]
 
