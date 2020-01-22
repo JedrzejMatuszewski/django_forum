@@ -24,36 +24,4 @@
     </ul>
 </div>
 
-<div class="section__main__content__separator"></div>
-
-
-<div class="section__main__content__right">
-
-    <div class="categories">
-        <header class="categories__header">
-            <i class="fas fa-align-right"></i>
-            <h1>CATEGORIES</h1>
-        </header>
-        <ul class="categories__list">
-            {% for category in categories_obj %}
-            <a href="{% url 'topic-category' category.slug %}"><li class="categories__category">{{ category.title }}</li></a>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="stats">
-        <header class="stats__header">
-            <i class="fas fa-chart-bar"></i>
-            <h1>Forum stats</h1>
-        </header>
-        <ul class="stats__list">
-            <li class="stats__statistic">200 users online from 16 countries</li>
-            <li class="stats__statistic">600 Active members</li>
-            <li class="stats__statistic">400 topics</li>
-            <li class="stats__statistic">9999999999 posts</li>
-            <li class="stats__statistic">9999 categories</li>
-        </ul>
-    </div>
-
-</div>
 {% endblock content %}

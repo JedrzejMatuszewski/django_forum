@@ -4,7 +4,11 @@
     <list default="true" id="949a358b-1596-4bf8-89a6-fc2c8a523075" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/templates/forum/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/templates/forum/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/templates/forum/topic_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/templates/forum/topic_category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/templates/forum/topic_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/templates/forum/topic_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/views.py" afterDir="false" />
     </list>
@@ -55,6 +59,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -71,6 +76,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -147,6 +153,7 @@
       <workItem from="1578599207224" duration="44000" />
       <workItem from="1579539977265" duration="4361000" />
       <workItem from="1579677709844" duration="3559000" />
+      <workItem from="1579703799834" duration="14170000" />
     </task>
     <servers />
   </component>
