@@ -360,6 +360,14 @@ section.section__main__content{
             font-weight: 700;
             font-size: 17px;
             font-family: 'Lato', sans-serif;
+
+            & a{
+                text-decoration: none;
+                color: rgba(0,0,0,.7);
+                font-weight: 700;
+                font-size: 17px;
+                font-family: 'Lato', sans-serif;
+            }
         }
 
         &__desc{
@@ -497,6 +505,11 @@ section.section__main__content{
 
             background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
     box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+
+            & a{
+                text-decoration:none;
+                color:white;
+            }
             
             &:hover {
                 background-position: 100% 0;

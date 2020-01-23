@@ -340,6 +340,13 @@ section.section__main__content .bg-group__second {
   font-size: 17px;
   font-family: "Lato", sans-serif;
 }
+.hot-topics .hot-topics__topic__header a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+  font-size: 17px;
+  font-family: "Lato", sans-serif;
+}
 .hot-topics .hot-topics__topic__desc {
   margin-top: 0.4rem;
 }
@@ -445,6 +452,10 @@ section.section__main__content .bg-group__second {
   transition: all 0.4s ease-in-out;
   background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
   box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.categories__list .categories__category a {
+  text-decoration: none;
+  color: white;
 }
 .categories__list .categories__category:hover {
   background-position: 100% 0;
