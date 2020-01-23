@@ -5,6 +5,10 @@
         <i class="fas fa-burn"></i>
         <h1>HOT TOPICS</h1>
         <a href="#" class="hot-topics__header__button">View All</a>
+        &nbsp; &nbsp;
+        {% for a in topic_obj %}
+            <a href="{% url 'topic-create' a.category %}" class="hot-topics__header__button">Ad</a>
+        {% endfor %}
     </header>
     <ul class="hot-topics__list">
          {% for post in topic_obj %}

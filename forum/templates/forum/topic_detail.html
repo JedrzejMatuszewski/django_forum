@@ -20,5 +20,27 @@
             </ul>
         </li>
     </ul>
+
+    <h1 style="margin: 20px 0px">Posty</h1>
+
+    {% for post in topic_obj.topics.all %}
+        <ul class="hot-topics__list">
+            <li class="hot-topics__topic">
+                <h2 class="hot-topics__topic__header">{{ post.title }}</h2>
+                <p class="hot-topics__topic__desc">{{ post.content }}</p>
+                <ul class="hot-topics__topic__statistics">
+                    <div class="hot-topics__topic__statistics__container">
+                         <li>Autor: <a href="{% url 'topic-user' post.author.username %}">{{ post.author }}</a></li>
+                        <li>Data: {{ post.date_posted|date:'d F Y'}}</li>
+                    </div>
+                </ul>
+            </li>
+        </ul>
+        <br>
+    {% empty %}
+        <p class="hot-topics__topic__desc">Brak postow</p>
+    {% endfor %}
+        <a href="{% url 'topic-new-post' topic_obj.slug %}"><p class="hot-topics__topic__desc">Dodaj nowy</p></a>
+
 </div>
 {% endblock content %}

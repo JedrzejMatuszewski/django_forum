@@ -29,6 +29,9 @@ class Topic(models.Model):
     content = models.TextField(default="")
     slug = models.SlugField(null=True, unique=True)
 
+    def __str__(self):
+        return self.title
+
     def get_absolute_url(self):
         return reverse('topic-detail', kwargs={'slug': self.slug, })
 
@@ -47,8 +50,5 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-    def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
 
 

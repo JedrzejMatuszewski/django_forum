@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
-from .models import Categories, Topic
+
+from .models import Categories, Topic, Post
 
 
 class CatAndTopicListView(ListView):
@@ -56,6 +58,19 @@ class UserTopicListView(ListView):
 class TopicCreateView(LoginRequiredMixin, CreateView):
     model = Topic
     fields = ['title', 'content', 'category']
+
+    def form_valid(self, form):
+        category = Categories.objects.filter(title=self.kwargs['category'])
+        form.instance.category = category
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'content', 'topic']
+    slug = Post.topic
+    success_url = reverse_lazy('topic-detail', slug)
 
     def form_valid(self, form):
         form.instance.author = self.request.user

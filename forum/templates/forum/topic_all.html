@@ -5,8 +5,6 @@
         <i class="fas fa-burn"></i>
         <h1>HOT TOPICS</h1>
     <a href="{% url 'topic-all' %}" class="hot-topics__header__button">Wszystkie Tematy</a>
-                &nbsp;
-        <a href="{% url 'topic-create' %}" class="hot-topics__header__button">Dodaj Temat</a>
     </header>
     <ul class="hot-topics__list">
          {% for post in topic_obj %}
