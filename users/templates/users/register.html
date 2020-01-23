@@ -1,11 +1,15 @@
-{% extends 'forum/base.html' %}
+{% extends 'users/base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
+
+        <img src="{% static 'forum/guestpic.png' %}" class="guest-image" alt="user-picture">
+
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
+                <legend class="login__desc">
                     Join Today
                 </legend>
                 {{ form|crispy }}

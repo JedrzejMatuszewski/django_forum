@@ -1,0 +1,27 @@
+{% extends 'forum/base.html' %}
+{% block content %}
+<div class="hot-topics">
+    <header class="hot-topics__header">
+        <i class="fas fa-burn"></i>
+        <h1>HOT TOPICS</h1>
+        <a href="#" class="hot-topics__header__button">View All</a>
+    </header>
+    <ul class="hot-topics__list">
+         {% for post in topic_obj %}
+        <li class="hot-topics__topic">
+            <h2 class="hot-topics__topic__header"><a href="{% url 'topic-detail' post.slug %}">{{ post.title }}</a></h2>
+            <p class="hot-topics__topic__desc">{{ post.content|truncatewords:20 }}</p>
+            <ul class="hot-topics__topic__statistics">
+                <div class="hot-topics__topic__statistics__container">
+                     <li>Autor: <a href="{% url 'topic-user' post.author.username %}">{{ post.author }}</a></li>
+                    <li>Data: {{ post.date_posted|date:'d F Y'}}</li>
+                    <li class="section-mark {{ post.category }}"><a href="{% url 'topic-category' post.category.slug %}">{{ post.category }}</li></a>
+                </div>
+
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %}

@@ -64,8 +64,8 @@
 }
 
 .guest-image{
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
     margin-bottom: 1rem;
 }
 
@@ -106,7 +106,10 @@
 }
 
 
-.textinput{
+#hint_id_username, #hint_id_password2, #hint_id_password1{
+    display:none;
+}
+.textinput, .emailinput{
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
     //background-color: rgb(240, 240, 240);
     border: solid 1px rgb(233, 233, 233);
@@ -163,11 +166,12 @@
     }
 }
 
-.alert li{
-    font-size:.9rem;
+.alert li, .invalid-feedback{
+    font-size:.8rem;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    margin-bottom: .7rem;
+    margin-bottom: .6rem;
     color:red;
     text-align:center;
 }
+

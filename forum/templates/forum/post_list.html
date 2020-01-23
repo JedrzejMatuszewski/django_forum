@@ -1,0 +1,21 @@
+{% extends 'forum/base.html' %}
+{% block content %}
+<div class="hot-topics">
+    <ul class="hot-topics__list">
+         {% for obj in object %}
+        <li class="hot-topics__topic">
+        <h1>{{ obj.title }}</h1>
+            <p class="hot-topics__topic__desc">{{ obj.content|truncatewords:20 }}</p>
+            <ul class="hot-topics__topic__statistics">
+                <div class="hot-topics__topic__statistics__container">
+                     <li>Autor: <a href="{% url 'topic-user' obj.author.username %}">{{ post.author }}</a></li>
+                    <li>Data: {{ obj.date_posted|date:'d F Y'}}</li>
+                </div>
+
+            </ul>
+        </li>
+        {% endfor %}
+
+
+
+{% endblock content %}
