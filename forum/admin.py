@@ -12,6 +12,11 @@ class TopicAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date_posted', 'author', 'topic', 'content', 'slug',)
+    prepopulated_fields = {'slug': ('title',)}
+
+
 admin.site.register(Categories, CategoriesAdmin)
 admin.site.register(Topic, TopicAdmin)
-admin.site.register(Post)
+admin.site.register(Post, PostAdmin)

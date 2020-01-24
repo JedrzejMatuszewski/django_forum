@@ -7,6 +7,7 @@
         <a href="{% url 'topic-all' %}" class="hot-topics__header__button">Wszystkie Tematy</a>
     </header>
     <ul class="hot-topics__list">
+        <a href="{% url 'topic-delete' topic_obj.category.slug topic_obj.slug %}">Usuń temat</a>
         <li class="hot-topics__topic">
             <h2 class="hot-topics__topic__header">{{ topic_obj.title }}</h2>
             <p class="hot-topics__topic__desc">{{ topic_obj.content }}</p>
@@ -26,6 +27,7 @@
     {% for post in topic_obj.topics.all %}
         <ul class="hot-topics__list">
             <li class="hot-topics__topic">
+                <a href="{% url 'post-delete' topic_obj.slug post.id %}">Usuń post</a>
                 <h2 class="hot-topics__topic__header">{{ post.title }}</h2>
                 <p class="hot-topics__topic__desc">{{ post.content }}</p>
                 <ul class="hot-topics__topic__statistics">
@@ -40,7 +42,7 @@
     {% empty %}
         <p class="hot-topics__topic__desc">Brak postow</p>
     {% endfor %}
-        <a href="{% url 'topic-new-post' topic_obj.slug %}"><p class="hot-topics__topic__desc">Dodaj nowy</p></a>
+        <a href="{% url 'topic-new-post' topic_obj.category.slug topic_obj.slug %}"><p class="hot-topics__topic__desc">Dodaj nowy</p></a>
 
 </div>
 {% endblock content %}

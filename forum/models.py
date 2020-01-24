@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.template.defaultfilters import slugify
+from django.shortcuts import render, get_object_or_404
 
 
 class Categories(models.Model):
@@ -12,13 +13,13 @@ class Categories(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('topic-category', kwargs={'slug': self.slug})
-
     def save(self, *args, **kwargs):  # new
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('topic-category', kwargs={'slug': self.slug})
 
 
 class Topic(models.Model):
@@ -30,15 +31,17 @@ class Topic(models.Model):
     slug = models.SlugField(null=True, unique=True)
 
     def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('topic-detail', kwargs={'slug': self.slug, })
+        return self.slug
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:
             self.slug = slugify(self.title)
+
         return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('topic-detail', kwargs={'cat': self.category.slug,
+                                               'slug': self.slug})
 
 
 class Post(models.Model):
@@ -47,8 +50,16 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name='topics')
+    slug = models.SlugField(null=True, unique=True)
 
     def __str__(self):
         return self.title
 
+    def save(self, *args, **kwargs):  # new
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'slug': self.slug,
+                                              'pk': self.id})

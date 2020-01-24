@@ -9,7 +9,7 @@
     <ul class="hot-topics__list">
         {% for post in topic_obj %}
         <li class="hot-topics__topic">
-            <h2 class="hot-topics__topic__header"><a href="{% url 'topic-detail' post.slug %}">{{ post.title }}</a></h2>
+            <h2 class="hot-topics__topic__header"><a href="{% url 'topic-detail' post.category.slug post.slug %}">{{ post.title }}</a></h2>
             <p class="hot-topics__topic__desc">{{ post.content|truncatewords:20 }}</p>
             <ul class="hot-topics__topic__statistics">
                 <div class="hot-topics__topic__statistics__container">

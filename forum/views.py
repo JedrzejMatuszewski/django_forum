@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 
 from .models import Categories, Topic, Post
@@ -35,10 +35,9 @@ class TopicAllListView(ListView):
 class CategoryTopicListView(ListView):
     model = Topic
     template_name = 'forum/topic_category.html'
-    context_object_name = 'topic_obj'
     paginate_by = 5
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, object_list=None, **kwargs):
         context = super(CategoryTopicListView, self).get_context_data(**kwargs)
         context['categories_obj'] = Categories.objects.all()
         context['topic_obj'] = Topic.objects.filter(category__slug=self.kwargs['slug']).order_by('-date_posted')
@@ -55,23 +54,56 @@ class UserTopicListView(ListView):
         return Topic.objects.filter(author=user).order_by('-date_posted')
 
 
-class TopicCreateView(LoginRequiredMixin, CreateView):
+# nic nie znaczaca klasa, niech tu będzie na razie
+class PostListView(ListView):
+    model = Post
+    context_object_name = 'object'
+
+
+# its working
+class TopicCreateView(CreateView):
     model = Topic
-    fields = ['title', 'content', 'category']
+    fields = ['title', 'content']
 
     def form_valid(self, form):
-        category = Categories.objects.filter(title=self.kwargs['category'])
+        category = get_object_or_404(Categories, slug=self.kwargs['cat'])
         form.instance.category = category
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        return super(TopicCreateView, self).form_valid(form)
 
 
+# its working
+class TopicDeleteView(DeleteView):
+    model = Topic
+
+    def get_success_url(self):
+        topic_p = get_object_or_404(Categories, slug=self.kwargs['cat'])
+        return reverse_lazy('topic-category', kwargs={'slug': topic_p.slug})
+
+
+# Its working
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content', 'topic']
-    slug = Post.topic
-    success_url = reverse_lazy('topic-detail', slug)
+    fields = ['title', 'content']
+
+    def get_success_url(self):
+        topic_p = get_object_or_404(Topic, slug=self.kwargs['slug'])
+        return reverse_lazy('topic-detail', kwargs={'cat': topic_p.category.slug,
+                                                    'slug': topic_p.slug})
 
     def form_valid(self, form):
+        topic = get_object_or_404(Topic, slug=self.kwargs['slug'])
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        form.instance.topic = topic
+        return super(PostCreateView, self).form_valid(form)
+
+
+# Its working
+class PostDeleteView(DeleteView):
+    model = Post
+
+    def get_success_url(self):
+        obj = get_object_or_404(Topic, slug=self.kwargs['slug'])
+        return reverse_lazy('topic-detail', kwargs={'cat': obj.category.slug,
+                                                    'slug': obj.slug})
+
