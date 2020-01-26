@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Kulim+Park&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
@@ -605,7 +605,7 @@ section.section__main__content .bg-group__second {
   display: flex;
   flex-direction: row;
   border: 1px solid gray;
-  border-radius: 8px;
+  border-radius: 9px;
   padding: 0.5rem 1rem;
   position: relative;
   margin-bottom: 1rem;
