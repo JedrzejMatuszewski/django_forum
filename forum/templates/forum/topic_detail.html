@@ -1,9 +1,11 @@
 {% extends 'forum/base.html' %}
 {% block content %}
-    <section class="topic">
+<section class="topic">
 
-        
+    <h1>Temat</h1>
+
     <div class="topic__container">
+
         <div class="topic__author__container">
             <a class="topic__author" href="{% url 'topic-user' topic_obj.author.username %}">{{ topic_obj.author }}</a>
             <p class="topic__date">{{ topic_obj.date_posted|date:'d F Y'}}</p>
@@ -16,38 +18,43 @@
             </div>
         </div>
 
+        {% if request.user.is_superuser %}
         <a href="{% url 'topic-delete' topic_obj.category.slug topic_obj.slug %}" class="delete-topic">Usuń temat</a>
+        {% endif %}
     </div>
 
     <section class="posts">
 
-    
-    {% for post in topic_obj.topics.all %}
+        <h1>Posty</h1>
 
-    <div class="topic__container">
-        <div class="topic__author__container">
-            <a class="topic__author" href="{% url 'topic-user' topic_obj.author.username %}">{{ post.author }}</a>
-            <p class="topic__date">{{ post.date_posted|date:'d F Y'}}</p>
-        </div>
+        {% for post in topic_obj.topics.all %}
 
-        <div class="topic__content">
-            <div class="topic_container_wrap">
-                <h1 class="topic__header">{{ post.title }}</h1>
-                <p class="topic__desc">{{ post.content }}</p>
+        <div class="topic__container">
+            <div class="topic__author__container">
+                <a class="topic__author" href="{% url 'topic-user' topic_obj.author.username %}">{{ post.author }}</a>
+                <p class="topic__date">{{ post.date_posted|date:'d F Y'}}</p>
             </div>
+
+            <div class="topic__content">
+                <div class="topic_container_wrap">
+                    <h1 class="topic__header">{{ post.title }}</h1>
+                    <p class="topic__desc">{{ post.content }}</p>
+                </div>
+            </div>
+
+            {% if request.user.is_superuser %}
+            <a href="{% url 'post-delete' topic_obj.slug post.id %}" class="delete-topic">Usuń post</a>
+            {% endif %}
         </div>
 
-        <a href="{% url 'post-delete' topic_obj.slug post.id %}" class="delete-topic">Usuń post</a>
-    </div>
-
-    {% empty %}
-    <div class="no-posts__container">
-        <div class="no-posts">Brak postow</div>
-    </div>
-    {% endfor %}
+        {% empty %}
+        <div class="no-posts__container">
+            <div class="no-posts">Brak postow</div>
+        </div>
+        {% endfor %}
         <a href="{% url 'topic-new-post' topic_obj.category.slug topic_obj.slug %}" class="add-post">Dodaj nowy</a>
 
     </section>
-    
-    </section>
+
+</section>
 {% endblock content %}
