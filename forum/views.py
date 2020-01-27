@@ -41,6 +41,7 @@ class CategoryTopicListView(ListView):
         context = super(CategoryTopicListView, self).get_context_data(**kwargs)
         context['categories_obj'] = Categories.objects.all()
         context['topic_obj'] = Topic.objects.filter(category__slug=self.kwargs['slug']).order_by('-date_posted')
+        context['category'] = self.kwargs['slug']
         return context
 
 
@@ -60,8 +61,7 @@ class PostListView(ListView):
     context_object_name = 'object'
 
 
-# its working
-class TopicCreateView(CreateView):
+class TopicCreateView(LoginRequiredMixin, CreateView):
     model = Topic
     fields = ['title', 'content']
 
@@ -72,16 +72,19 @@ class TopicCreateView(CreateView):
         return super(TopicCreateView, self).form_valid(form)
 
 
-# its working
-class TopicDeleteView(DeleteView):
+class TopicDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Topic
 
     def get_success_url(self):
         topic_p = get_object_or_404(Categories, slug=self.kwargs['cat'])
         return reverse_lazy('topic-category', kwargs={'slug': topic_p.slug})
 
+    def test_func(self):
+        if self.request.user.is_superuser:
+            return True
+        return False
 
-# Its working
+
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'content']
@@ -98,8 +101,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return super(PostCreateView, self).form_valid(form)
 
 
-# Its working
-class PostDeleteView(DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
 
     def get_success_url(self):
@@ -107,3 +109,7 @@ class PostDeleteView(DeleteView):
         return reverse_lazy('topic-detail', kwargs={'cat': obj.category.slug,
                                                     'slug': obj.slug})
 
+    def test_func(self):
+        if self.request.user.is_superuser:
+            return True
+        return False
