@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'forum/user.css' %}">
     <title>Forum internetowe</title>
 </head>
+
 <body>
     <section class="container">
 
@@ -16,14 +18,15 @@
                 <div class="section-left__brand">
                     <img src="{% static 'forum/logo.png' %}" class="brand-logo" alt="">
                 </div>
-                <div class="section-left__text">Welcome to the our forum!</div>
+                <div class="section-left__text">Witamy na naszym forum! </div>
             </div>
         </section>
         <section class="section-right">
-                {% block content %}{% endblock content %}
+            {% block content %}{% endblock content %}
 
         </section>
 
     </section>
 </body>
+
 </html>

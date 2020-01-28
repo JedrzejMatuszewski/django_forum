@@ -23,7 +23,8 @@
     <div class="section__container">
         <div class="section__left">
             <nav class="nav__left">
-                <div class="brand-logo__container"><img src="{% static 'forum/logo.png' %}" class="brand-logo" alt=""></div>
+                <div class="brand-logo__container"><img src="{% static 'forum/logo.png' %}" class="brand-logo" alt="">
+                </div>
                 <ul class="nav__left__buttons">
                     <li class="nav__left__button">
                         <a href="#" class="nav__left__link"><i class="fas fa-signal"></i></a>
@@ -47,42 +48,42 @@
                 <a href="{% url 'forum-home' %}" class="nav__top__brand-name">DESIGNDEV FORUM</a>
                 <div class="nav__top__search__container">
                     <i class="fas fa-search"></i>
-                    <input class="nav__top__search" type="search" placeholder="Search the forum">
+                    <input class="nav__top__search" type="search" placeholder="Szukaj...">
                 </div>
 
 
                 {% if user.is_authenticated %}
-                    <div class="nav__top__guest">
-                        <div class="nav__top__guest__buttons">
+                <div class="nav__top__guest">
+                    <div class="nav__top__guest__buttons">
 
-                            <a class="nav__top__guest__button" href="{% url 'profile' %}">Profil</a>
-                            <a class="nav__top__guest__button" href="{% url 'logout' %}">Wyloguj się</a>
-                        </div>
+                        <a class="nav__top__guest__button" href="{% url 'profile' %}">Profil</a>
+                        <a class="nav__top__guest__button" href="{% url 'logout' %}">Wyloguj się</a>
+                    </div>
                     <p>Witaj, {{ user.username }}</p>
                     <div class="nav__top__guest__image__container">
                         <img src="{{ user.profile.image.url }}" class="nav__top__guest__image" alt="user-picture">
                     </div>
                 </div>
                 {% else %}
-                    <div class="nav__top__guest">
-                        <div class="nav__top__guest__buttons">
-                            <p class="nav__top__guest__buttons__text">Proszę się zalogować</p>
+                <div class="nav__top__guest">
+                    <div class="nav__top__guest__buttons">
+                        <p class="nav__top__guest__buttons__text">Proszę się zalogować</p>
 
-                            <a class="nav__top__guest__button" href="{% url 'login' %}">Zaloguj się</a>
-                            <a class="nav__top__guest__button" href="{% url 'register' %}">Zarejestruj się</a>
-                        </div>
-                        <p>Welcome, Guest!</p>
-                        <div class="nav__top__guest__image__container">
-                            <img src="{% static 'forum/guestpic.png' %}" class="nav__top__guest__image" alt="user-picture">
-                        </div>
+                        <a class="nav__top__guest__button" href="{% url 'login' %}">Zaloguj się</a>
+                        <a class="nav__top__guest__button" href="{% url 'register' %}">Zarejestruj się</a>
                     </div>
+                    <p>Witaj, Guest!</p>
+                    <div class="nav__top__guest__image__container">
+                        <img src="{% static 'forum/guestpic.png' %}" class="nav__top__guest__image" alt="user-picture">
+                    </div>
+                </div>
                 {% endif %}
             </nav>
 
 
-                
+
             {% block content %}{% endblock content %}
-                
+
 
             <div class="section__main__separator"></div>
 

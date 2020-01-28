@@ -3,19 +3,21 @@
 <div class="hot-topics">
     <header class="hot-topics__header">
         <i class="fas fa-burn"></i>
-        <h1>HOT TOPICS</h1>
-    <a href="{% url 'topic-all' %}" class="hot-topics__header__button">Wszystkie Tematy</a>
+        <h1>Wszystkie tematy</h1>
+        <a href="{% url 'topic-all' %}" class="hot-topics__header__button">Wszystkie Tematy</a>
     </header>
     <ul class="hot-topics__list">
-         {% for post in topic_obj %}
+        {% for post in topic_obj %}
         <li class="hot-topics__topic">
-            <h2 class="hot-topics__topic__header"><a href="{% url 'topic-detail' post.category.slug post.slug %}">{{ post.title }}</a></h2>
+            <h2 class="hot-topics__topic__header"><a
+                    href="{% url 'topic-detail' post.category.slug post.slug %}">{{ post.title }}</a></h2>
             <p class="hot-topics__topic__desc">{{ post.content|truncatewords:20 }}</p>
             <ul class="hot-topics__topic__statistics">
                 <div class="hot-topics__topic__statistics__container">
-                     <li>Autor: <a href="{% url 'topic-user' post.author.username %}">{{ post.author }}</a></li>
+                    <li>Autor: <a href="{% url 'topic-user' post.author.username %}">{{ post.author }}</a></li>
                     <li>Data: {{ post.date_posted|date:'d F Y'}}</li>
-                    <li class="section-mark {{ post.category }}"><a href="{% url 'topic-category' post.category.slug %}">{{ post.category }}</li></a>
+                    <li class="section-mark {{ post.category }}"><a
+                            href="{% url 'topic-category' post.category.slug %}">{{ post.category }}</li></a>
                 </div>
 
             </ul>
@@ -23,27 +25,27 @@
         {% endfor %}
 
 
-    {% if is_paginated %}
+        {% if is_paginated %}
 
         {% if page_obj.has_previous %}
-            <a href="?page=1">Pierwsza</a>
-            <a href="?page={{ page_obj.previous_page_number }}">Poprzednia</a>
+        <a href="?page=1">Pierwsza</a>
+        <a href="?page={{ page_obj.previous_page_number }}">Poprzednia</a>
         {% endif %}
 
         {% for num in page_obj.paginator.page_range %}
-            {% if page_obj.number == num %}
-                <a href="?page={{ num }}">{{ num }}</a>
-            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                <a href="?page={{ num }}">{{ num }}</a>
-            {% endif %}
+        {% if page_obj.number == num %}
+        <a href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
         {% endfor %}
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">Następna</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">Ostatnia</a>
+        <a href="?page={{ page_obj.next_page_number }}">Następna</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">Ostatnia</a>
         {% endif %}
 
-    {% endif %}
+        {% endif %}
 
     </ul>
 </div>

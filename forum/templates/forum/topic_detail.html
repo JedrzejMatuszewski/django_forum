@@ -1,10 +1,15 @@
 {% extends 'forum/base.html' %}
 {% block content %}
-    <section class="topic">
+<section class="topic">
         <div class="topic__bg-primary"></div>
         <div class="topic__bg-secondary"></div>
         
+    <h1>Temat</h1>
+
     <div class="topic__container topic__main">
+    
+
+
         <div class="topic__author__container">
             <div class="category__topic__author">
                 <div class="category__topic__author__img">
@@ -23,16 +28,17 @@
             </div>
         </div>
 
-
         <a href="{% url 'topic-delete' topic_obj.category.slug topic_obj.slug %}" class="delete-topic">Usuń temat</a>
+        {% endif %}
     </div>
 
     <section class="posts">
 
-    
-    {% for post in topic_obj.topics.all %}
+        <h1>Posty</h1>
 
-    <div class="topic__container">
+        {% for post in topic_obj.topics.all %}
+
+<div class="topic__container">
         <div class="topic__author__container">
             <div class="category__topic__author">
                 <div class="category__topic__author__img">
@@ -40,25 +46,19 @@
                 </div>
             </div>
             <a class="topic__author" href="{% url 'topic-user' topic_obj.author.username %}">{{ post.author }}</a>
-            
-        </div>
-
-        <div class="topic__content">
-            <div class="topic_container_wrap">
-                <p class="topic__date">{{ post.date_posted|date:'d F Y'}}</p>
-                <p class="topic__desc">{{ post.content }}</p>
             </div>
-        </div>
 
-        <a href="{% url 'post-delete' topic_obj.slug post.id %}" class="delete-topic">Usuń post</a>
-    </div>
+            <div class="topic__content">
+                <div class="topic_container_wrap">
+                    <h1 class="topic__header">{{ post.title }}</h1>
+                    <p class="topic__desc">{{ post.content }}</p>
+                </div>
+            </div>
 
-    {% empty %}
-
-    {% endfor %}
+        {% endfor %}
         <a href="{% url 'topic-new-post' topic_obj.category.slug topic_obj.slug %}" class="add-post">Odpowiedz</a>
 
     </section>
-    
-    </section>
+
+</section>
 {% endblock content %}
