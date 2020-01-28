@@ -1,65 +1,52 @@
 {% extends 'forum/base.html' %}
 {% block content %}
-<div class="hot-topics">
-    <header class="hot-topics__header">
-        <i class="fas fa-burn"></i>
-        <h1>HOT TOPICS</h1>
-
-        {% for obj in topic_obj %}
-            {% if forloop.first %}
-                <a href="{% url 'topic-create' obj.category.slug %}" class="hot-topics__header__button">Dodaj Temat</a>
-            {% endif %}
-        {% endfor %}
-
-    </header>
-    <ul class="hot-topics__list">
+<div class="category__topic">
+        <div class="topic__bg-primary"></div>
+        <div class="topic__bg-secondary"></div>
+    <ul class="category__topic__list flex-4">
          {% for post in topic_obj %}
-        <li class="hot-topics__topic">
-            <h2 class="hot-topics__topic__header"><a href="{% url 'topic-detail' post.category.slug post.slug %}">{{ post.title }}</a></h2>
-            <p class="hot-topics__topic__desc">{{ post.content|truncatewords:20 }}</p>
-            <ul class="hot-topics__topic__statistics">
-                <div class="hot-topics__topic__statistics__container">
-                     <li>Autor: <a href="{% url 'topic-user' post.author.username %}">{{ post.author }}</a></li>
-                    <li>Data: {{ post.date_posted|date:'d F Y'}}</li>
-                    <li class="section-mark {{ post.category }}"><a href="{% url 'topic-category' post.category.slug %}">{{ post.category }}</li></a>
-                </div>
+        <li class="category__topic__topic">
 
-            </ul>
+            <div class="category__topic__author">
+                <div class="category__topic__author__img">
+                    <img src="{{ post.author.profile.image.url }}" alt="">
+                </div>
+            </div>
+
+            <div class="category__topic__content">
+                <a href="{% url 'topic-detail' post.category.slug post.slug %}" class="category__topic__topic__header">{{ post.title }}</a>
+                <p class="category__topic__topic__author">Autor: <a class="category__topic__topic__author" href="{% url 'topic-user' post.author.username %}">{{ post.author }}</a> kategoria: <a href="{% url 'topic-category' post.category.slug %}" class="category__topic__content__category">{{ post.category }}</a></p>
+                <p class="category__topic__topic__desc">{{ post.content|truncatewords:20 }}</p>
+                
+                
+            </div>
+
+            <div class="category__topic__content__stats">
+                <p class="category__topic__content__stats__date">{{ post.date_posted|date:'d F Y'}}</p>
+            </div>
+            
         </li>
         {% endfor %}
+        {% for obj in topic_obj %}
+            {% if forloop.first %}
+                <a href="{% url 'topic-create' obj.category.slug %}" class="category__topic__header__button">Dodaj Temat</a>
+            {% endif %}
+    {% endfor %} 
     </ul>
-</div>
-
-<div class="section__main__content__separator"></div>
-
-
-<div class="section__main__content__right">
-
-    <div class="categories">
-        <header class="categories__header">
-            <i class="fas fa-align-right"></i>
-            <h1>CATEGORIES</h1>
-        </header>
-        <ul class="categories__list">
+    <div class="flex-1"></div>
+    <div class="categories flex-4" >
+        <ul class="categories__list cotcat" style="background-color:white;">
             {% for category in categories_obj %}
             <a href="{% url 'topic-category' category.slug %}"><li class="categories__category">{{ category.title }}</li></a>
             {% endfor %}
         </ul>
     </div>
-
-    <div class="stats">
-        <header class="stats__header">
-            <i class="fas fa-chart-bar"></i>
-            <h1>Forum stats</h1>
-        </header>
-        <ul class="stats__list">
-            <li class="stats__statistic">200 users online from 16 countries</li>
-            <li class="stats__statistic">600 Active members</li>
-            <li class="stats__statistic">400 topics</li>
-            <li class="stats__statistic">9999999999 posts</li>
-            <li class="stats__statistic">9999 categories</li>
-        </ul>
-    </div>
-
 </div>
+
+
+
+
+
+    
+
 {% endblock content %}

@@ -1,17 +1,17 @@
 {% extends 'forum/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
+    <div class="content-section post-form">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
+                <legend class="border-bottom mb-4 form-h1">
                     Temat
                 </legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Publikuj</button>
+                <button class="add-post btn btn-outline-info" type="submit">Publikuj</button>
             </div>
         </form>
         <div class="border-top pt-3">

@@ -5,13 +5,13 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
+                <legend class="border-bottom mb-4 form-h1">
                     Dodaj post
                 </legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Publikuj</button>
+                <button class="add-post btn btn-outline-info" type="submit">Publikuj</button>
             </div>
         </form>
         <div class="border-top pt-3">
