@@ -1,18 +1,19 @@
 {% extends 'forum/base.html' %}
 {% block content %}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
-                    Usuwanie posta
-                </legend>
-                <h2>Czy na pewno chcesz usunąć post: "{{ object.title }}" </h2>
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-danger" type="submit">Tak, usuń</button>
-                <a class="btn btn-outline-secondary" href="{% url 'topic-detail' object.topic.category.slug object.topic.slug %}">Anuluj</a>
-            </div>
-        </form>
-    </div>
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                Usuwanie posta
+            </legend>
+            <h2>Czy na pewno chcesz usunąć post: "{{ object.content }}" </h2>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-danger" type="submit">Tak, usuń</button>
+            <a class="btn btn-outline-secondary"
+                href="{% url 'topic-detail' object.topic.category.slug object.topic.slug %}">Anuluj</a>
+        </div>
+    </form>
+</div>
 {% endblock content %}

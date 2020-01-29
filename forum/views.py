@@ -29,19 +29,22 @@ class TopicAllListView(ListView):
     template_name = 'forum/topic_all.html'
     context_object_name = 'topic_obj'
     ordering = ['-date_posted']
-    paginate_by = 3
+    paginate_by = 5
 
 
 class CategoryTopicListView(ListView):
     model = Topic
     template_name = 'forum/topic_category.html'
+    context_object_name = 'topic_obj'
     paginate_by = 5
 
     def get_context_data(self, object_list=None, **kwargs):
         context = super(CategoryTopicListView, self).get_context_data(**kwargs)
-        context['categories_obj'] = Categories.objects.all()
-        context['topic_obj'] = Topic.objects.filter(category__slug=self.kwargs['slug']).order_by('-date_posted')
+        context['categories_obj'] = Categories.objects.all().order_by('title')
+        context['topic_obj'] = Topic.objects.filter(
+            category__slug=self.kwargs['slug']).order_by('-date_posted')
         context['category'] = self.kwargs['slug']
+        context['title'] = self.kwargs['slug']
         return context
 
 
@@ -49,6 +52,7 @@ class UserTopicListView(ListView):
     model = Topic
     template_name = 'forum/topic_user.html'
     context_object_name = 'topic_obj'
+    paginate_by = 5
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
@@ -87,7 +91,7 @@ class TopicDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['content']
 
     def get_success_url(self):
         topic_p = get_object_or_404(Topic, slug=self.kwargs['slug'])

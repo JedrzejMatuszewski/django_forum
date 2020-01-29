@@ -1,12 +1,12 @@
 {% extends 'forum/base.html' %}
 {% block content %}
 <section class="topic">
-        <div class="topic__bg-primary"></div>
-        <div class="topic__bg-secondary"></div>
+    <div class="topic__bg-primary"></div>
+    <div class="topic__bg-secondary"></div>
 
 
     <div class="topic__container topic__main">
-    
+
 
 
         <div class="topic__author__container">
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <a class="topic__author" href="{% url 'topic-user' topic_obj.author.username %}">{{ topic_obj.author }}</a>
-            
+
         </div>
 
         <div class="topic__content">
@@ -27,32 +27,35 @@
             </div>
         </div>
 
+        {% if request.user.is_superuser %}
         <a href="{% url 'topic-delete' topic_obj.category.slug topic_obj.slug %}" class="delete-topic">Usuń temat</a>
+        {% endif %}
     </div>
 
     <section class="posts">
 
         {% for post in topic_obj.topics.all %}
 
-<div class="topic__container">
-        <div class="topic__author__container">
-            <div class="category__topic__author">
-                <div class="category__topic__author__img">
-                    <img src="{{ post.author.profile.image.url }}" class="" alt="">
+        <div class="topic__container">
+            <div class="topic__author__container">
+                <div class="category__topic__author">
+                    <div class="category__topic__author__img">
+                        <img src="{{ post.author.profile.image.url }}" class="" alt="">
+                    </div>
                 </div>
-            </div>
-            <a class="topic__author" href="{% url 'topic-user' topic_obj.author.username %}">{{ post.author }}</a>
+                <a class="topic__author" href="{% url 'topic-user' topic_obj.author.username %}">{{ post.author }}</a>
             </div>
 
             <div class="topic__content">
                 <div class="topic_container_wrap">
                     <p class="topic__date">{{ topic_obj.date_posted|date:'d F Y'}}</p>
-                    <h1 class="topic__header">{{ post.title }}</h1>
                     <p class="topic__desc">{{ post.content }}</p>
                 </div>
             </div>
 
-        <a href="{% url 'post-delete' topic_obj.slug post.id %}" class="delete-topic">Usuń post</a>
+            {% if request.user.is_superuser %}
+            <a href="{% url 'post-delete' topic_obj.slug post.id %}" class="delete-topic">Usuń post</a>
+            {% endif %}
 
         </div>
         {% endfor %}

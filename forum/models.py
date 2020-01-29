@@ -45,21 +45,15 @@ class Topic(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=120)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name='topics')
-    slug = models.SlugField(null=True, unique=True)
+    topic = models.ForeignKey(
+        Topic, on_delete=models.CASCADE, related_name='topics')
 
     def __str__(self):
-        return self.title
-
-    def save(self, *args, **kwargs):  # new
-        if not self.slug:
-            self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
+        return self.content
 
     def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'slug': self.slug,
+        return reverse('post-detail', kwargs={'slug': self.topic.slug,
                                               'pk': self.id})

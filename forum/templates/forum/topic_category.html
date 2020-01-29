@@ -1,10 +1,10 @@
 {% extends 'forum/base.html' %}
 {% block content %}
 <div class="category__topic">
-        <div class="topic__bg-primary"></div>
-        <div class="topic__bg-secondary"></div>
+    <div class="topic__bg-primary"></div>
+    <div class="topic__bg-secondary"></div>
     <ul class="category__topic__list flex-4">
-         {% for post in topic_obj %}
+        {% for post in topic_obj %}
         <li class="category__topic__topic">
 
             <div class="category__topic__author">
@@ -14,30 +14,35 @@
             </div>
 
             <div class="category__topic__content">
-                <a href="{% url 'topic-detail' post.category.slug post.slug %}" class="category__topic__topic__header">{{ post.title }}</a>
-                <p class="category__topic__topic__author">Autor: <a class="category__topic__topic__author" href="{% url 'topic-user' post.author.username %}">{{ post.author }}</a> kategoria: <a href="{% url 'topic-category' post.category.slug %}" class="category__topic__content__category">{{ post.category }}</a></p>
+                <a href="{% url 'topic-detail' post.category.slug post.slug %}"
+                    class="category__topic__topic__header">{{ post.title }}</a>
+                <p class="category__topic__topic__author">Autor: <a class="category__topic__topic__author"
+                        href="{% url 'topic-user' post.author.username %}">{{ post.author }}</a> kategoria: <a
+                        href="{% url 'topic-category' post.category.slug %}"
+                        class="category__topic__content__category">{{ post.category }}</a></p>
                 <p class="category__topic__topic__desc">{{ post.content|truncatewords:20 }}</p>
-                
-                
+
+
             </div>
 
             <div class="category__topic__content__stats">
                 <p class="category__topic__content__stats__date">{{ post.date_posted|date:'d F Y'}}</p>
             </div>
-            
+
         </li>
         {% endfor %}
-        {% for obj in topic_obj %}
-            {% if forloop.first %}
-                <a href="{% url 'topic-create' obj.category.slug %}" class="category__topic__header__button">Dodaj Temat</a>
-            {% endif %}
-    {% endfor %} 
+
+        <a href="{% url 'topic-create' category %}" class="category__topic__header__button">Dodaj Temat</a>
+
+
     </ul>
     <div class="flex-1"></div>
-    <div class="categories flex-4" >
+    <div class="categories flex-4">
         <ul class="categories__list cotcat" style="background-color:white;">
             {% for category in categories_obj %}
-            <a href="{% url 'topic-category' category.slug %}"><li class="categories__category">{{ category.title }}</li></a>
+            <a href="{% url 'topic-category' category.slug %}">
+                <li class="categories__category">{{ category.title }}</li>
+            </a>
             {% endfor %}
         </ul>
     </div>
@@ -47,6 +52,6 @@
 
 
 
-    
+
 
 {% endblock content %}
